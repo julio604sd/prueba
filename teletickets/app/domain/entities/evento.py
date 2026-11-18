@@ -23,20 +23,16 @@ class Evento:
     def __init__(
         self,
         nombre: str,
-        descripcion: str,
         categoria: str,
         fecha_inicio: datetime,
-        ubicacion: str,
         precio_ticket: Dinero,
         capacidad_total: int,
         evento_id: str | None = None,
     ):
         self._evento_id = evento_id or str(uuid.uuid4())
         self._nombre = nombre.strip()
-        self._descripcion = descripcion.strip()
         self._categoria = categoria.strip()
         self._fecha_inicio = fecha_inicio
-        self._ubicacion = ubicacion.strip()
         # VO Dinero: valida precio no negativo (R1)
         self._precio_ticket = precio_ticket
         self._capacidad_total = capacidad_total
@@ -55,20 +51,12 @@ class Evento:
         return self._nombre
 
     @property
-    def descripcion(self) -> str:
-        return self._descripcion
-
-    @property
     def categoria(self) -> str:
         return self._categoria
 
     @property
     def fecha_inicio(self) -> datetime:
         return self._fecha_inicio
-
-    @property
-    def ubicacion(self) -> str:
-        return self._ubicacion
 
     @property
     def precio_ticket(self) -> Dinero:

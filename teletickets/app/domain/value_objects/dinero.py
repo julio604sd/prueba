@@ -52,10 +52,6 @@ class Dinero:
             raise ValueError("El factor no puede ser negativo.")
         return Dinero(self._monto * Decimal(factor), self._moneda)
 
-    def es_mayor_que(self, otro: "Dinero") -> bool:
-        self._validar_misma_moneda(otro)
-        return self._monto > otro._monto
-
     def __eq__(self, otro: object) -> bool:
         if not isinstance(otro, Dinero):
             return False
